@@ -1,0 +1,80 @@
+{
+    "name": "PegasosQKADriftingLambda",
+    "description": "Runs the drifting lambda experiment.",
+    "max_execution_time": 18000,
+    "spec": {
+        "parameters": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "properties": {
+                "data": {
+                    "description": "Numpy array of the training data.",
+                    "type": "object",
+                    "default": "None"
+                },
+                "num_steps": {
+                    "description": "Number of iterations.",
+                    "type": "number",
+                    "default": "500"
+                },
+                "qka": {
+                    "description": "Dictionary to construct the PegasosQKA instance.",
+                    "type": "object",
+                    "default": "None"
+                },
+                "dataset": {
+                    "description": "Dictionary to reconstruct the dataset.",
+                    "type": "object",
+                    "default": "None"
+                },
+                "qubits": {
+                    "description": "Number of qubits.",
+                    "type": "number",
+                    "default": "7"
+                },
+                "dynamical_decoupling": {
+                    "description": "Whether to use dynamical decoupling",
+                    "type": "bool",
+                    "default": "False"
+                },
+                "tau": {
+                    "description": "Window used in calculation of the weighted sum.",
+                    "type": "number",
+                    "default": "150"
+                },
+                "shots": {
+                    "description": "Number of shots.",
+                    "type": "number",
+                    "default": "1024"
+                }
+            },
+            "required": [
+                "data"
+            ]
+        },
+        "return_values": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "properties": {
+                "values": {
+                    "description": "Decision function values calculated during training.",
+                    "type": "object"
+                },
+                "y_true": {
+                    "description": "The true labels of the training data used during training.",
+                    "type": "object"
+                },
+                "qka": {
+                    "description": "Dictionary containing the required information to reconstruct the PegasosQKA instance.",
+                    "type": "object"
+                },
+                "dataset": {
+                    "description": "Dictionary containing the required information to reconstruct the dataset instance.",
+                    "type": "object"
+                },
+                "time": {
+                    "description": "Time used to run the script.",
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
